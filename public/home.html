@@ -462,12 +462,12 @@
                 
                   <div class="col-md-6 mb-3">
                     <label for="validationDefault01">First name</label>
-                    <input type="text" class="form-control bg-transparent text-white" id="validationDefault01" required>
+                    <input type="text" id="fname" class="form-control bg-transparent text-white" id="validationDefault01" required>
                   </div>
     
                   <div class="col-md-6 mb-3">
                     <label for="validationDefault02">Last name</label>
-                    <input type="text" class="form-control bg-transparent text-white" id="validationDefault02" required>
+                    <input type="text" id="lname" class="form-control bg-transparent text-white" id="validationDefault02" required>
                   </div>
                 
                 </div>
@@ -477,7 +477,7 @@
                   <div class="col-md-12 mb-3">
                     <label for="validationDefaultUsername">Your Email</label>
                     <div class="input-group">
-                      <input type="email" class="form-control bg-transparent text-white" id="validationDefaultUsername" required>
+                      <input type="email" id="email" class="form-control bg-transparent text-white" id="validationDefaultUsername" required>
                     </div>
                   </div>
                 
@@ -488,13 +488,13 @@
                   <div class="col-md-12 mb-3">
                     <label for="mesage">Your Message</label>
                     <div class="input-group">
-                      <textarea rows="6" cols="50" name="message" class="form-control bg-transparent text-white" style="width: 100%; border-radius: 4px"></textarea>
+                      <textarea rows="6" cols="50" id="message" class="form-control bg-transparent text-white" style="width: 100%; border-radius: 4px"></textarea>
                     </div>
                   </div>
                 
                 </div>
 
-                <button class="btn btn-success" type="submit" style="width: 100%">Send Message</button>
+                <button class="btn btn-success" id="btn-contact" style="width: 100%">Send Message</button>
             </form>
 
             
@@ -594,6 +594,36 @@
 
 
 <script>
+
+
+document.getElementById("btn-contact").addEventListener("click", function(event){
+
+  let fname = document.getElementById("fname").value;
+  let lname = document.getElementById("lname").value;
+  let email = document.getElementById("email").value;
+  let message = document.getElementById("message").value;
+
+  let data = {fname, lname, email, message};
+
+  event.preventDefault();
+ 
+  return fetch('/contact', {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  })
+    .then().then(response=>{
+      if(response.status === 200){
+        console.log("Good")
+      }else{
+        console.log("Bad")
+      }
+    })
+    .catch(err => console.log(err));
+});
 
 
 

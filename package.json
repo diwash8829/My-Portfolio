@@ -1,0 +1,17 @@
+{
+  "name": "protfolioujj",
+  "version": "1.0.0",
+  "description": "Protfolio of Ujjal Acharya",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.16.2",
+    "mongoose": "^5.5.11"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "Ujjal Acharya",
+  "license": "ISC"
+}
