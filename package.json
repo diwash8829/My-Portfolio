@@ -4,7 +4,7 @@
   "description": "Protfolio of Ujjal Acharya",
   "main": "app.js",
   "dependencies": {
-    "express": "^4.16.2",
+    "express": "^4.17.3",
     "mongoose": "^5.5.11"
   },
   "devDependencies": {},
